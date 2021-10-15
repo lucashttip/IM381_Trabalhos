@@ -11,7 +11,7 @@ using LaTeXStrings
 using Printf
 
 # Definições para plots bonitos
-Plots.default(guidefontsize=16,tickfontsize=14,titlefontsize=18,legendfontsize=12,dpi=200, lw = 1.5,size = (800,600))
+Plots.default(guidefontsize=16,tickfontsize=14,titlefontsize=18,legendfontsize=11,dpi=200, lw = 1.5,size = (800,600))
 
 # Arquivos necessários
 includet("plotfunctions.jl")
@@ -86,9 +86,9 @@ markers = [(:circle, 5,:red), (:star5, 5,:green), (:cross, 5,:orange), (:xcross,
 linhas = [(1, :dash, 0.7,:red),(1, :dash, 0.7,:green),(1, :dash, 0.7,:orange),(1, :dash, 0.7,:black)]
 
 # Plot dos resultados
-plt1 = plotbonito(coord,xa,ug,des_a,nnel,"Deslocamento",L"x \ [m]",L"u \ [mm]",1e3,markers,:topleft,linhas)
-plt2 = plotbonito(coorde,xa,sigma,tens_a,nnel,"Tensão",L"x \ [m]",L"\sigma \ [MPa]",1e-6,markers,:topright,linhas)
-plt3 = plotbonito(coorde,xa,epsilon,def_a,nnel,"Deformação",L"x \ [m]",L"\varepsilon \ [\%]",1e2,markers,:topright,linhas)
+plt1 = plotbonito(coord,xa,ug,des_a,nel,nnel,"Deslocamento",L"x \ [m]",L"u \ [mm]",1e3,markers,:topleft,linhas)
+plt2 = plotbonito(coorde,xa,sigma,tens_a,nel,nnel,"Tensão",L"x \ [m]",L"\sigma \ [MPa]",1e-6,markers,:topright,linhas)
+plt3 = plotbonito(coorde,xa,epsilon,def_a,nel,nnel,"Deformação",L"x \ [m]",L"\varepsilon \ [\%]",1e2,markers,:topright,linhas)
 
 display(plt1)
 display(plt2)

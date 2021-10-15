@@ -29,10 +29,10 @@ end
 """
 Faz plots bonitos comparando a solução analítica e as soluções numéricas
 """
-function plotbonito(x,xa,y,ya,nel,titulo,nomex,nomey,escala,markers,posleg,linhas)
+function plotbonito(x,xa,y,ya,nel,nnel,titulo,nomex,nomey,escala,markers,posleg,linhas)
     plt = plot(xa,ya.*escala,title=titulo,label="analítico",xlabel = nomex, ylabel = nomey,legend=posleg,lw = 2)
     for i in 1:length(y)
-        plt = plot!(plt,x[i][:,1],y[i].*escala,marker = markers[i],line = linhas[i],label=string(nel[i]," nós"))
+        plt = plot!(plt,x[i][:,1],y[i].*escala,marker = markers[i],line = linhas[i],label=string(nel[i],"elem ",nnel[i]," nós"))
     end
     return plt
 end
