@@ -19,7 +19,7 @@ includet("functionsmef.jl")
 includet("MEFsolver.jl")
 
 # Configurações de saída
-salvafigs = true    # Salvar os plots em arquivos png?
+salvafigs = false    # Salvar os plots em arquivos png?
 
 # Dados de entrada
 L = 5               # Comprimento da barra [m]

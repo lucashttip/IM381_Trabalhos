@@ -35,7 +35,6 @@ function valoremx(x,coord,inci,ug,N)
         N2v = N[2](csi)
         N3v = N[3](csi)
         u = N1v*us[1] + N2v*us[2] + N3v*us[3]
-        println(N1v, " ",N2v, " ",N3v, " ", csi)
     end
     return u
 end
