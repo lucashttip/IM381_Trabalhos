@@ -26,7 +26,7 @@ plotly()
 # ================ Dados de entrada ================
 # ==================================================
 # ==================================================
-salvafigs = false
+salvafigs = true
 
 D = 0.18              # Diametro da base [m]
 beta = 1.5          # Parametro comprimento diametro de galho
@@ -36,6 +36,12 @@ N = 4               # Número de ramificações
 rho = 805           # Massa específica [kg/m³] 
 E = 11.3e9            # Módulo de Young [Pa]
 v = 0.38            # Coeficiente de Poisson
+
+nelgalho = 1
+ngalhos = 2^N - 1
+nel = nelgalho*ngalhos
+nnel = 2
+nnos = (nnel-1)*nel + 1
 
 # Definição dos diametros e dos comprimentos 
 Ds = [D*lambda^(i-1) for i in 1:N]
@@ -57,7 +63,7 @@ plt = plotMalha(plt,coord, inci, 0)
 plot!(plt,aspect_ratio=:equal)
 plot!(plt,xlabel="x [m]", ylabel = "y [m]")
 if salvafigs
-    savefig(plt,string("../imagens/malha",N,"niveis.png"))
+    savefig(plt,string("./imagens/malha",N,"niveis.png"))
 end
 display(plt)
 
@@ -66,7 +72,7 @@ plt = plotMalha(plt,coord, inci, 1)
 plot!(plt,aspect_ratio=:equal)
 plot!(plt,xlabel="x [m]", ylabel = "y [m]")
 if salvafigs
-    savefig(plt,string("../imagens/malha",N,"niveisnumerado.png"))
+    savefig(plt,string("./imagens/malha",N,"niveisnumerado.png"))
 end
 display(plt)
 
@@ -109,7 +115,7 @@ for j in 1:nmodos
     plt1 = plot!(plt1,aspect_ratio=:equal,title=string("Modo ",j,", Frequência: ", trunc(FN[j],digits=3), " [Hz]"),size = (600,600))
     display(plt1)
     if salvafigs
-        savefig(plt1,string("../imagens/",N,"niveis/",N,"niveismodo",j,".png"))
+        savefig(plt1,string("./imagens/",N,"niveismodo",j,".png"))
     end
 end
 
