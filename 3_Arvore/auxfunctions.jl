@@ -1,4 +1,4 @@
-function geramalha(N)
+function geramalha(N,alfad)
 
     nelgalho = 1
     ngalhos = 2^N - 1
